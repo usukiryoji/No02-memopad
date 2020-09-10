@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Font Awesome https://fontawesome.com/start -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!-- Bootstrap https://getbootstrap.com/docs/4.3/getting-started/introduction/ -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Todo List</title>
+</head>
+<body>
+    <h1>書いたものを保存、読み込みできるメモです。</h1>
+        <form name="form1">
+            <textarea name="Memo"></textarea>
+        </form>
+        <p>
+            <input type="button" value="保存" onclick=save(); ></input>
+            <input type="button" value="読込" onclick=load(); ></input>
+        </p>
+            <script type="text/javascript">
+                // 読込
+                function load() {
+                    var MemoData = "";
+                    if(!localStorage.getItem('MemoData')) {
+                        MemoData = "メモは登録されていません。";
+                    } else {
+                        MemoData = localStorage.getItem('MemoData');
+                    }
+                    document.form1.Memo.value = MemoData;
+                }
+                // 保存
+                function save() {
+                    var MemoData = document.form1.Memo.value;
+                    localStorage.setItem('MemoData', MemoData);
+                }
+            </script>
+
+
+
+
+
+</body>
+</html>
